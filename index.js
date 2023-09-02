@@ -28,23 +28,23 @@ const categoryRoutes = require('./routes/categories')
 
 //API rotes
 app.use('/auth', loginRoutes)
-app.use('/users', auth, userRoutes)
-app.use('/categories', auth, categoryRoutes)
+app.use('/users', userRoutes)
+app.use('/categories', categoryRoutes)
 
 app.get("/", auth, (req, res) => {
   res.redirect('dashboard')
 })
 
 app.get('/404',(req, res, next) => {
-  res.render('404')
+  res.json({message:"404"})
 })
 
 app.use((req, res, next) => {
-  res.redirect('/404')
+  res.json({message:"404"})
 })
 
 
 
-server.listen(3000, 'localhost', function () {
+server.listen(3000, function () {
   console.log("server is listening on port: 3000");
 });
