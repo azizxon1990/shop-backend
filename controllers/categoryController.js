@@ -47,7 +47,7 @@ const deleteCategory = async (req, res)=>{
             id:parseInt(req.params.id)
         }
     })
-    res.json(updatedCategory)
+    res.json(deletedCategory)
 }
 
 module.exports = {
