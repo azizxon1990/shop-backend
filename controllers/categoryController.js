@@ -40,9 +40,20 @@ const updateCategory = async (req, res)=>{
     res.json(updatedCategory)
 }
 
+const deleteCategory = async (req, res)=>{       
+    
+    const deletedCategory = await category.delete({
+        where:{
+            id:parseInt(req.params.id)
+        }
+    })
+    res.json(updatedCategory)
+}
+
 module.exports = {
     getAllCategories,
     createCategory,
     getCategoryById,
-    updateCategory
+    updateCategory,
+    deleteCategory
 }
