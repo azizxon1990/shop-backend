@@ -17,10 +17,11 @@ const getCategoryById = async (req, res)=>{
 
 const createCategory = async (req, res)=>{
     
-    let {name} = req.body
+    let {name, icon} = req.body
     const newCategory = await category.create({
         data:{
-            name
+            name,
+            icon
         }
     })
     res.json(newCategory)
@@ -28,8 +29,8 @@ const createCategory = async (req, res)=>{
 }
 
 const updateCategory = async (req, res)=>{       
-    let {name} = req.body
-    const data = {name}
+    let {name, icon} = req.body
+    const data = {name, icon}
     
     const updatedCategory = await category.update({
         data,

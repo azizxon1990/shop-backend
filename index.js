@@ -4,26 +4,18 @@ const cors = require('cors')
 
 const {corsConfig} = require('./config/serverConfig')
 
-
 const app = express()
 const server = http.createServer(app)
-
-
-
 
 app.use(cors(corsConfig));
 app.use(express.json());
 app.use(express.urlencoded());
-
-
 
 //import routes
 const auth = require("./middleware/auth")
 const loginRoutes = require('./routes/login')
 const userRoutes = require('./routes/users')
 const categoryRoutes = require('./routes/categories')
-
-
 
 
 //API rotes
